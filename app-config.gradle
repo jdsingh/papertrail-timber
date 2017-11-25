@@ -1,0 +1,50 @@
+ext {
+    papertrail_host = getPapertrailHost()
+    papertrail_port = getPapertrailPort()
+}
+
+String getPapertrailHost() {
+    return getProperty("papertrail.host", "PAPERTRAIL_HOST", true)
+}
+
+String getPapertrailPort() {
+    return getProperty("papertrail.port", "PAPERTRAIL_PORT", false)
+}
+
+String getProperty(String property, String envVariable, boolean addQuote) {
+    String value = isCiBuild() ? fromEnv(envVariable) : fromFile(property)
+    if (value == null || value.isEmpty()) {
+        throw new IllegalStateException(
+                "Could not find property: " + property + " value in property file or environment")
+    }
+    if (addQuote) {
+        return "\"$value\""
+    }
+    return value
+}
+
+private boolean isCiBuild() {
+    fromEnv("CIRCLE_BUILD_NUM") != null
+}
+
+private static fromEnv(String property) {
+    System.getenv(property)
+}
+
+private String fromFile(String property) {
+    Properties apiProperties = loadFileProperties("$projectDir/local-app.properties")
+    return apiProperties.getProperty(property)
+}
+
+Properties loadFileProperties(String fileLocation) {
+    Properties properties = new Properties()
+    try {
+        properties.load(new FileInputStream(fileLocation))
+    } catch (FileNotFoundException fnf) {
+        logger.log(LogLevel.ERROR,
+                String.format("Missing Local App properties file: %s", fileLocation),
+                fnf)
+        throw fnf
+    }
+    return properties
+}
