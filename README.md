@@ -2,6 +2,26 @@
 
 Timber tree for Papertrail logging.
 
+### How to use
+
+Config Papertrail with your papertrail host and port. Application class is good place for this.
+
+#### Kotlin
+```kotlin
+Papertrail.init("AppName", "PAPERTRAIL_HOST", PAPERTRAIL_PORT)
+
+Timber.plant(PapertrailTree("logger-name"))
+```
+
+#### Java
+```java
+Papertrail.init("AppName", "PAPERTRAIL_HOST", PAPERTRAIL_PORT)
+
+Timber.plant(new PapertrailTree("logger-name"))
+```
+
+Once this setup is done, all Timber logs will be sent to Papertrail.
+
 ### Download
 
 To get a Git project into your build:
