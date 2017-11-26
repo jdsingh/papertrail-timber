@@ -15,7 +15,7 @@ Timber.plant(PapertrailTree("logger-name"))
 
 #### Java
 ```java
-Papertrail.init("AppName", "PAPERTRAIL_HOST", PAPERTRAIL_PORT)
+Papertrail.INSTANCE.init("AppName", "PAPERTRAIL_HOST", PAPERTRAIL_PORT)
 
 Timber.plant(new PapertrailTree("logger-name"))
 ```
