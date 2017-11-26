@@ -9,6 +9,7 @@ To get a Git project into your build:
 Step 1. Add the JitPack repository to your build file
 
 Add it in your root build.gradle at the end of repositories:
+
 ```groovy
 allprojects {
     repositories {
@@ -19,18 +20,21 @@ allprojects {
 ```
 
 Step 2. Add the dependency
+
 ```groovy
 dependencies {
-    implementation 'com.github.jdsingh:papertrail-timber:0.0.2'
+    implementation 'com.github.jdsingh:papertrail-timber:0.0.5'
 }
 ```
 
 ### Proguard
 
 ```proguard
+# Papertrail
 -keep class ch.qos.** { *; }
 -keep class org.slf4j.** { *; }
 -keep class com.papertrailapp.logback.Syslog4jAppender
+-keep class org.productivity.java.syslog4j.** { *; }
 
 -dontwarn ch.qos.logback.core.net.*
 -dontwarn org.apache.log4j.**
