@@ -2,7 +2,7 @@
 
 Timber tree for Papertrail logging.
 
-# Download
+### Download
 
 To get a Git project into your build:
 
@@ -23,4 +23,20 @@ Step 2. Add the dependency
 dependencies {
     implementation 'com.github.jdsingh:papertrail-timber:0.0.2'
 }
+```
+
+### Proguard
+
+```proguard
+-keep class ch.qos.** { *; }
+-keep class org.slf4j.** { *; }
+-keep class com.papertrailapp.logback.Syslog4jAppender
+
+-dontwarn ch.qos.logback.core.net.*
+-dontwarn org.apache.log4j.**
+-dontwarn org.apache.commons.**
+-dontwarn com.sun.jna.*
+
+-dontwarn org.productivity.java.syslog4j.impl.log4j.Syslog4jAppenderSkeleton
+-dontwarn org.productivity.java.syslog4j.impl.unix.socket.UnixSocketSyslog
 ```
