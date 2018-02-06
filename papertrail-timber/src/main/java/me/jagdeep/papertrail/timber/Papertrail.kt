@@ -12,7 +12,7 @@ import org.slf4j.LoggerFactory
 /**
  * Configure Papertrail with Android logback.
  */
-object Papertrail {
+internal object Papertrail {
 
     fun init(appName: String, host: String, port: Int) {
         // Reset the default context (which may already have been initialized)
