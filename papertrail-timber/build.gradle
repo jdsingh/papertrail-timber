@@ -2,7 +2,7 @@ apply plugin: "com.android.library"
 apply plugin: "kotlin-android"
 apply plugin: "com.github.dcendents.android-maven"
 
-group="com.github.jdsingh"
+group = "com.github.jdsingh"
 
 android {
     compileSdkVersion 26
@@ -10,13 +10,7 @@ android {
     defaultConfig {
         minSdkVersion 16
         targetSdkVersion 26
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled true
-            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
-        }
+        consumerProguardFiles 'consumer-proguard-rules.pro'
     }
 
 }
@@ -29,13 +23,11 @@ dependencies {
     implementation "com.jakewharton.timber:timber:4.6.0"
 
     implementation "org.slf4j:slf4j-api:1.7.25"
-
     implementation "com.github.tony19:logback-android-core:1.1.1-6"
-    implementation ("com.github.tony19:logback-android-classic:1.1.1-6") {
+    implementation("com.github.tony19:logback-android-classic:1.1.1-6") {
         exclude group: "com.google.android", module: "android"
     }
-
-    implementation ("com.papertrailapp:logback-syslog4j:1.0.0"){
+    implementation("com.papertrailapp:logback-syslog4j:1.0.0") {
         exclude group: "ch.qos.logback"
     }
 }
