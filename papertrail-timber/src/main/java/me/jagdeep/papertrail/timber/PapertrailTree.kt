@@ -7,9 +7,13 @@ import timber.log.Timber
 /**
  * Timber Tree for sending logs to PaperTrail.
  */
-class PapertrailTree(logger: String) : Timber.DebugTree() {
+class PapertrailTree(logger: String, appName: String, host: String, port: Int) : Timber.DebugTree() {
 
     private val logger = LoggerFactory.getLogger(logger)
+
+    init {
+        Papertrail.init(appName, host, port)
+    }
 
     override fun log(priority: Int, tag: String?, message: String, t: Throwable?) {
         if (priority == Log.VERBOSE) {

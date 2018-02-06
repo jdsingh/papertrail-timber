@@ -1,5 +1,5 @@
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
+apply plugin: "com.android.application"
+apply plugin: "kotlin-android"
 
 def STRING = "String"
 def INT = "int"
@@ -20,19 +20,23 @@ android {
     }
 
     buildTypes {
+        debug {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+        }
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
     }
 }
 
 dependencies {
-    testImplementation 'junit:junit:4.12'
+    testImplementation "junit:junit:4.12"
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation "com.android.support:appcompat-v7:26.1.0"
 
-    implementation 'com.jakewharton.timber:timber:4.6.0'
-    implementation project(':papertrail-timber')
+    implementation "com.jakewharton.timber:timber:4.6.0"
+    implementation project(":papertrail-timber")
 }

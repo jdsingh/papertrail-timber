@@ -36,7 +36,8 @@ class MainActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
 
-        // val ex = Exception("Something really bad")
-        Timber.e("onDestroy - called")
+        val ex = Exception("Something really bad")
+        Timber.e(ex, "onDestroy - called")
     }
+
 }
