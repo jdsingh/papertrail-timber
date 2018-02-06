@@ -8,16 +8,12 @@ Config Papertrail with your papertrail host and port. Application class is good 
 
 #### Kotlin
 ```kotlin
-Papertrail.init("AppName", "PAPERTRAIL_HOST", PAPERTRAIL_PORT)
-
-Timber.plant(PapertrailTree("logger-name"))
+Timber.plant(PapertrailTree("logger-name", "AppName", "PAPERTRAIL_HOST", PAPERTRAIL_PORT))
 ```
 
 #### Java
 ```java
-Papertrail.INSTANCE.init("AppName", "PAPERTRAIL_HOST", PAPERTRAIL_PORT)
-
-Timber.plant(new PapertrailTree("logger-name"))
+Timber.plant(new PapertrailTree("logger-name", "AppName", "PAPERTRAIL_HOST", PAPERTRAIL_PORT))
 ```
 
 Once this setup is done, all Timber logs will be sent to Papertrail.
@@ -43,7 +39,7 @@ Step 2. Add the dependency
 
 ```groovy
 dependencies {
-    implementation 'com.github.jdsingh:papertrail-timber:0.0.5'
+    implementation 'com.github.jdsingh:papertrail-timber:0.0.6'
 }
 ```
 
