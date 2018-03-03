@@ -60,3 +60,8 @@ dependencies {
 -dontwarn org.productivity.java.syslog4j.impl.log4j.Syslog4jAppenderSkeleton
 -dontwarn org.productivity.java.syslog4j.impl.unix.socket.UnixSocketSyslog
 ```
+
+Thanks
+------
+
+Thanks to @tony19 for [logback-android](https://github.com/tony19/logback-android).
