@@ -5,12 +5,24 @@ apply plugin: "com.github.dcendents.android-maven"
 group = "com.github.jdsingh"
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion 28
 
     defaultConfig {
         minSdkVersion 16
-        targetSdkVersion 27
+        targetSdkVersion 28
         consumerProguardFiles 'consumer-proguard-rules.pro'
+    }
+
+    // TODO replace with https://issuetracker.google.com/issues/72050365 once released.
+    libraryVariants.all {
+        it.generateBuildConfig.enabled = false
+    }
+
+    lintOptions {
+        abortOnError true
+        htmlReport true
+        htmlOutput file("$project.buildDir/reports/lint/lint.html")
+        lintConfig file("lint.xml")
     }
 
 }
