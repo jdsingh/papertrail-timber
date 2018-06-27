@@ -9,17 +9,17 @@ class App : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        // "1.0,v1"
-        val logger = buildString {
-            append(BuildConfig.VERSION_NAME)
-            append(",")
-            append("v")
-            append(BuildConfig.VERSION_CODE)
-        }
+        val system = "PapertrailTimber"
+
+        // "v1"
+        val program = "v${BuildConfig.VERSION_CODE}"
+
+        // "1.0"
+        val logger = BuildConfig.VERSION_NAME
 
         val tree = PapertrailTree.Builder()
-            .system("Android")
-            .program("Papertrail")
+            .system(system)
+            .program(program)
             .logger(logger)
             .host(BuildConfig.PAPERTRAIL_HOST)
             .port(BuildConfig.PAPERTRAIL_PORT)

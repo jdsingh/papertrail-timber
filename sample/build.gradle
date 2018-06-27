@@ -1,9 +1,6 @@
 apply plugin: "com.android.application"
 apply plugin: "kotlin-android"
 
-def STRING = "String"
-def INT = "int"
-
 android {
     compileSdkVersion 27
 
@@ -15,8 +12,8 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
-        buildConfigField(STRING, "PAPERTRAIL_HOST", papertrail_host)
-        buildConfigField(INT, "PAPERTRAIL_PORT", papertrail_port)
+        buildConfigField('String', "PAPERTRAIL_HOST", papertrail_host)
+        buildConfigField('int', "PAPERTRAIL_PORT", papertrail_port)
     }
 
     buildTypes {
