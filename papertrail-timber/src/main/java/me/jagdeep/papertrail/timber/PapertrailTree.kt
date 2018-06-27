@@ -76,7 +76,7 @@ class PapertrailTree private constructor(
             require(::_program.isInitialized) { "program is required" }
             require(::_logger.isInitialized) { "logger is required" }
             require(::_host.isInitialized) { "host is required" }
-            require(_port == 0) { "port is required" }
+            require(_port != 0) { "port is required" }
 
             return PapertrailTree(
                 _system,
