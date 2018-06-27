@@ -1,4 +1,10 @@
 
+1.0.0 / 2018-06-28
+==================
+
+  * fix: using api instead of implementation for library dependencies
+  * chore: add lint configs
+
 0.0.9 / 2018-06-27
 ==================
 
