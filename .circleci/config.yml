@@ -13,7 +13,7 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
+          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "papertrail-timber/build.gradle" }}
       - run:
           name: Download Dependencies
           command: ./gradlew androidDependencies
@@ -22,17 +22,8 @@ jobs:
             - ~/.gradle
           key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
       - run:
-          name: Test - Build - Release
-          command: ./scripts/ci/build.sh $CIRCLE_BRANCH
-      - store_artifacts:
-          path: app/build/outputs/apk/staging/release/app-staging-release.apk
-          destination: app-staging-release.apk
-      - store_artifacts:
-          path: app/build/outputs/mapping/staging/release/mapping.txt
-          destination: staging-mapping.txt
-      - store_artifacts:
-          path: app/build/outputs/apk/production/release/app-production-release-unsigned.apk
-          destination: app-production-release-unsigned.apk
-      - store_artifacts:
-          path: app/build/outputs/mapping/production/release/mapping.txt
-          destination: production-mapping.txt
+          name: Test
+          command: ./gradlew :papertrail-timber:test
+      - run:
+          name: Build
+          command: ./gradlew :papertrail-timber:assemble
