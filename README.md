@@ -8,12 +8,28 @@ Config Papertrail with your papertrail host and port. Application class is good 
 
 #### Kotlin
 ```kotlin
-Timber.plant(PapertrailTree("logger-name", "AppName", "PAPERTRAIL_HOST", PAPERTRAIL_PORT))
+val tree = PapertrailTree.Builder()
+            .system("Android")
+            .program("Papertrail")
+            .logger("My-App")
+            .host(BuildConfig.PAPERTRAIL_HOST)
+            .port(BuildConfig.PAPERTRAIL_PORT)
+            .build()
+            
+Timber.plant(tree)
 ```
 
 #### Java
 ```java
-Timber.plant(new PapertrailTree("logger-name", "AppName", "PAPERTRAIL_HOST", PAPERTRAIL_PORT))
+final PapertrailTree tree = new PapertrailTree.Builder()
+            .system("Android")
+            .program("Papertrail")
+            .logger("My-App")
+            .host(BuildConfig.PAPERTRAIL_HOST)
+            .port(BuildConfig.PAPERTRAIL_PORT)
+            .build()
+            
+Timber.plant(tree)
 ```
 
 Once this setup is done, all Timber logs will be sent to Papertrail.

@@ -5,11 +5,11 @@ apply plugin: "com.github.dcendents.android-maven"
 group = "com.github.jdsingh"
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion 27
 
     defaultConfig {
         minSdkVersion 16
-        targetSdkVersion 26
+        targetSdkVersion 27
         consumerProguardFiles 'consumer-proguard-rules.pro'
     }
 
@@ -17,11 +17,8 @@ android {
 
 dependencies {
     testImplementation "junit:junit:4.12"
-
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-
-    implementation "com.jakewharton.timber:timber:4.6.0"
-
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    api "com.jakewharton.timber:timber:4.7.0"
     implementation "org.slf4j:slf4j-api:1.7.25"
     implementation "com.github.tony19:logback-android-core:1.1.1-6"
     implementation("com.github.tony19:logback-android-classic:1.1.1-6") {
