@@ -29,5 +29,7 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation "com.android.support:appcompat-v7:27.1.1"
 
-    implementation project(":papertrail-timber")
+    // implementation project(":papertrail-timber")
+    implementation "com.jakewharton.timber:timber:4.7.0"
+    implementation "com.github.jdsingh:papertrail-timber:0.0.9"
 }
