@@ -14,7 +14,7 @@ import org.slf4j.LoggerFactory
  */
 internal object Papertrail {
 
-    fun init(appName: String, host: String, port: Int) {
+    fun init(system: String, program: String, host: String, port: Int) {
         // Reset the default context (which may already have been initialized)
         // since we want to reconfigure it
         val loggerContext = (LoggerFactory.getILoggerFactory() as LoggerContext).apply {
@@ -31,7 +31,7 @@ internal object Papertrail {
 
         val patternLayout = PatternLayout().apply {
             context = loggerContext
-            pattern = "%d{MMM dd HH:mm:ss} Android $appName: %logger{35} %-5level %m%n"
+            pattern = "%d{MMM dd HH:mm:ss} $system $program: %logger{35} %-5level %m%n"
             start()
         }
 
