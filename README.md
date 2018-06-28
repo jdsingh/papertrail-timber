@@ -53,7 +53,7 @@ Step 2. Add the dependency
 
 ```groovy
 dependencies {
-    implementation 'com.github.jdsingh:papertrail-timber:1.0.0'
+    implementation 'com.github.jdsingh:papertrail-timber:1.0.1'
 }
 ```
 
@@ -64,9 +64,6 @@ proguard rules separately. These are the proguard rules used for this library.
 
 ```proguard
 # Papertrail
--dontnote kotlin.internal.**
--dontnote kotlin.jvm.internal.**
-
 -keep class org.productivity.java.syslog4j.impl.net.tcp.ssl.SSLTCPNetSyslog
 -keep class org.productivity.java.syslog4j.impl.net.tcp.ssl.SSLTCPNetSyslogWriter
 
