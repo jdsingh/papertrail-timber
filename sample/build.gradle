@@ -16,8 +16,22 @@ android {
         buildConfigField('int', "PAPERTRAIL_PORT", papertrail_port)
     }
 
+    android {
+        lintOptions {
+            abortOnError false
+        }
+    }
+
     buildTypes {
+        debug {
+            zipAlignEnabled true
+            shrinkResources true
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+        }
         release {
+            zipAlignEnabled true
+            shrinkResources true
             minifyEnabled true
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
@@ -30,5 +44,5 @@ dependencies {
     implementation "com.android.support:appcompat-v7:27.1.1"
 
     implementation project(":papertrail-timber")
-    // implementation "com.github.jdsingh:papertrail-timber:1.0.0"
+    // implementation "com.github.jdsingh:papertrail-timber:develop-SNAPSHOT"
 }
