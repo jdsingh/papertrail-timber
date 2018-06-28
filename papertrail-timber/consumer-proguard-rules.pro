@@ -1,6 +1,3 @@
--dontnote kotlin.internal.**
--dontnote kotlin.jvm.internal.**
-
 -keep class org.productivity.java.syslog4j.impl.net.tcp.ssl.SSLTCPNetSyslog
 -keep class org.productivity.java.syslog4j.impl.net.tcp.ssl.SSLTCPNetSyslogWriter
 
