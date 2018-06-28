@@ -59,20 +59,20 @@ dependencies {
 
 ### Proguard
 
+`consumer-proguard-rules.pro` is included in the library, so you don't need to include these
+proguard rules separately. These are the proguard rules used for this library.
+
 ```proguard
 # Papertrail
--keep class ch.qos.** { *; }
--keep class org.slf4j.** { *; }
--keep class com.papertrailapp.logback.Syslog4jAppender
--keep class org.productivity.java.syslog4j.** { *; }
+-dontnote kotlin.internal.**
+-dontnote kotlin.jvm.internal.**
 
+-keep class org.productivity.java.syslog4j.impl.net.tcp.ssl.SSLTCPNetSyslog
+-keep class org.productivity.java.syslog4j.impl.net.tcp.ssl.SSLTCPNetSyslogWriter
+
+-dontwarn org.productivity.java.syslog4j.impl.**
 -dontwarn ch.qos.logback.core.net.*
--dontwarn org.apache.log4j.**
--dontwarn org.apache.commons.**
--dontwarn com.sun.jna.*
 
--dontwarn org.productivity.java.syslog4j.impl.log4j.Syslog4jAppenderSkeleton
--dontwarn org.productivity.java.syslog4j.impl.unix.socket.UnixSocketSyslog
 ```
 
 Thanks
