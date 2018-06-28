@@ -53,7 +53,7 @@ Step 2. Add the dependency
 
 ```groovy
 dependencies {
-    implementation 'com.github.jdsingh:papertrail-timber:0.0.9'
+    implementation 'com.github.jdsingh:papertrail-timber:1.0.0'
 }
 ```
 
