@@ -44,5 +44,5 @@ dependencies {
     implementation "com.android.support:appcompat-v7:27.1.1"
 
     implementation project(":papertrail-timber")
-    // implementation "com.github.jdsingh:papertrail-timber:develop-SNAPSHOT"
+    // implementation "com.github.jdsingh:papertrail-timber:1.0.1-1.0.1"
 }
