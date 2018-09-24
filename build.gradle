@@ -3,7 +3,7 @@
 buildscript {
     apply from: 'app-config.gradle'
 
-    ext.kotlin_version = '1.2.70'
+    ext.kotlin_version = '1.2.71'
 
     repositories {
         google()
