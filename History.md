@@ -1,4 +1,9 @@
 
+1.0.2 / 2018-12-10
+==================
+
+  * #14: Add log priority filter in PapertrailTree builder
+
 1.0.1 / 2018-06-28
 ==================
 

@@ -14,6 +14,7 @@ val tree = PapertrailTree.Builder()
             .logger("My-App")
             .host(BuildConfig.PAPERTRAIL_HOST)
             .port(BuildConfig.PAPERTRAIL_PORT)
+            .priority(Log.INFO)
             .build()
             
 Timber.plant(tree)
@@ -27,6 +28,7 @@ final PapertrailTree tree = new PapertrailTree.Builder()
             .logger("My-App")
             .host(BuildConfig.PAPERTRAIL_HOST)
             .port(BuildConfig.PAPERTRAIL_PORT)
+            .priority(Log.INFO)
             .build()
             
 Timber.plant(tree)
@@ -53,7 +55,7 @@ Step 2. Add the dependency
 
 ```groovy
 dependencies {
-    implementation 'com.github.jdsingh:papertrail-timber:1.0.1'
+    implementation 'com.github.jdsingh:papertrail-timber:1.0.2'
 }
 ```
 
