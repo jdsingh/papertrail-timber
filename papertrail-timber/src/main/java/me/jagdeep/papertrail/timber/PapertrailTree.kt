@@ -15,7 +15,8 @@ class PapertrailTree private constructor(
     program: String,
     logger: String,
     host: String,
-    port: Int
+    port: Int,
+    private val logPriority: Int
 ) : Timber.DebugTree() {
 
     private val logger = LoggerFactory.getLogger(logger)
@@ -25,7 +26,7 @@ class PapertrailTree private constructor(
     }
 
     override fun log(priority: Int, tag: String?, message: String, t: Throwable?) {
-        if (priority == Log.VERBOSE) {
+        if (priority == Log.VERBOSE || priority < logPriority) {
             return
         }
 
@@ -45,29 +46,54 @@ class PapertrailTree private constructor(
         private lateinit var _logger: String
         private lateinit var _host: String
         private var _port: Int = 0
+        private var _priority: Int = Log.DEBUG
 
+        /** System name for Papertrail logs. */
         fun system(system: String): Builder {
             _system = system
             return this
         }
 
+        /** Program name for Papertrail logs. */
         fun program(program: String): Builder {
             _program = program
             return this
         }
 
+        /** Logger name for Papertrail logs. */
         fun logger(logger: String): Builder {
             _logger = logger
             return this
         }
 
+        /** Host for Papertrail logs. */
         fun host(host: String): Builder {
             _host = host
             return this
         }
 
+        /** Port for Papertrail logs. */
         fun port(port: Int): Builder {
             _port = port
+            return this
+        }
+
+        /**
+         * Priority level filter. Logs with priority level of equal or higher will be
+         * sent to papertrail.
+         *
+         * Priority levels:
+         * DEBUG = 3
+         * INFO = 4
+         * WARN = 5
+         * ERROR = 6
+         *
+         * Default is DEBUG
+         *
+         * @param priority Priority level filter.
+         */
+        fun priority(priority: Int): Builder {
+            _priority = priority
             return this
         }
 
@@ -79,11 +105,7 @@ class PapertrailTree private constructor(
             require(_port != 0) { "port is required" }
 
             return PapertrailTree(
-                _system,
-                _program,
-                _logger,
-                _host,
-                _port
+                _system, _program, _logger, _host, _port, _priority
             )
         }
     }
