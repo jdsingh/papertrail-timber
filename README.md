@@ -14,6 +14,7 @@ val tree = PapertrailTree.Builder()
             .logger("My-App")
             .host(BuildConfig.PAPERTRAIL_HOST)
             .port(BuildConfig.PAPERTRAIL_PORT)
+            // send logs to papertrail with priority Log.INFO and above
             .priority(Log.INFO)
             .build()
             
@@ -28,6 +29,7 @@ final PapertrailTree tree = new PapertrailTree.Builder()
             .logger("My-App")
             .host(BuildConfig.PAPERTRAIL_HOST)
             .port(BuildConfig.PAPERTRAIL_PORT)
+            // send logs to papertrail with priority Log.INFO and above
             .priority(Log.INFO)
             .build()
             
