@@ -1,6 +1,7 @@
 package me.jagdeep.papertrailtimber
 
 import android.app.Application
+import android.util.Log
 import me.jagdeep.papertrail.timber.PapertrailTree
 import timber.log.Timber
 
@@ -23,6 +24,7 @@ class App : Application() {
             .logger(logger)
             .host(BuildConfig.PAPERTRAIL_HOST)
             .port(BuildConfig.PAPERTRAIL_PORT)
+            .priority(Log.INFO)
             .build()
 
         Timber.plant(tree, Timber.DebugTree())
