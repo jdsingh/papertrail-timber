@@ -1,4 +1,4 @@
-# papertrail-timber [![](https://jitpack.io/v/jdsingh/papertrail-timber.svg)](https://jitpack.io/#jdsingh/papertrail-timber)
+# papertrail-timber [![](https://jitpack.io/v/jdsingh/papertrail-timber.svg)](https://jitpack.io/#jdsingh/papertrail-timber) [![CircleCI](https://circleci.com/gh/jdsingh/papertrail-timber/tree/master.svg?style=svg)](https://circleci.com/gh/jdsingh/papertrail-timber/tree/master)
 
 Timber tree for Papertrail logging.
 
