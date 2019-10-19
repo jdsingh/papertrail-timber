@@ -1,6 +1,8 @@
 package me.jagdeep.papertrail.timber
 
 import android.util.Log
+import me.jagdeep.papertrail.timber.internal.Configuration
+import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import timber.log.Timber
 
@@ -19,10 +21,10 @@ class PapertrailTree private constructor(
     private val logPriority: Int
 ) : Timber.DebugTree() {
 
-    private val logger = LoggerFactory.getLogger(logger)
+    private val log: Logger = LoggerFactory.getLogger(logger)
 
     init {
-        Papertrail.init(system, program, host, port)
+        Configuration(system, program, host, port)
     }
 
     override fun log(priority: Int, tag: String?, message: String, t: Throwable?) {
@@ -33,10 +35,10 @@ class PapertrailTree private constructor(
         val msg = if (tag != null) "[$tag]: $message" else message
 
         when (priority) {
-            Log.DEBUG -> logger.debug(msg)
-            Log.INFO -> logger.info(msg)
-            Log.WARN -> logger.warn(msg)
-            Log.ERROR -> logger.error(msg)
+            Log.DEBUG -> log.debug(msg)
+            Log.INFO -> log.info(msg)
+            Log.WARN -> log.warn(msg)
+            Log.ERROR -> log.error(msg)
         }
     }
 
@@ -48,31 +50,31 @@ class PapertrailTree private constructor(
         private var _port: Int = 0
         private var _priority: Int = Log.DEBUG
 
-        /** System name for Papertrail logs. */
+        /** System name for Configuration logs. */
         fun system(system: String): Builder {
             _system = system
             return this
         }
 
-        /** Program name for Papertrail logs. */
+        /** Program name for Configuration logs. */
         fun program(program: String): Builder {
             _program = program
             return this
         }
 
-        /** Logger name for Papertrail logs. */
+        /** Logger name for Configuration logs. */
         fun logger(logger: String): Builder {
             _logger = logger
             return this
         }
 
-        /** Host for Papertrail logs. */
+        /** Host for Configuration logs. */
         fun host(host: String): Builder {
             _host = host
             return this
         }
 
-        /** Port for Papertrail logs. */
+        /** Port for Configuration logs. */
         fun port(port: Int): Builder {
             _port = port
             return this
