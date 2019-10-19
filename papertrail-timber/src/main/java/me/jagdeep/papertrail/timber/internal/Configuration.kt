@@ -10,7 +10,7 @@ import org.productivity.java.syslog4j.impl.net.tcp.ssl.SSLTCPNetSyslogConfig
 import org.slf4j.LoggerFactory
 
 /**
- * Configure Configuration with Android logback.
+ * Configure Papertrail with Android logback.
  */
 internal class Configuration(system: String, program: String, host: String, port: Int) {
 

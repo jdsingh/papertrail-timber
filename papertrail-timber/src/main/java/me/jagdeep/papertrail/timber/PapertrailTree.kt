@@ -50,31 +50,31 @@ class PapertrailTree private constructor(
         private var _port: Int = 0
         private var _priority: Int = Log.DEBUG
 
-        /** System name for Configuration logs. */
+        /** System name for Papertrail logs. */
         fun system(system: String): Builder {
             _system = system
             return this
         }
 
-        /** Program name for Configuration logs. */
+        /** Program name for Papertrail logs. */
         fun program(program: String): Builder {
             _program = program
             return this
         }
 
-        /** Logger name for Configuration logs. */
+        /** Logger name for Papertrail logs. */
         fun logger(logger: String): Builder {
             _logger = logger
             return this
         }
 
-        /** Host for Configuration logs. */
+        /** Host for Papertrail logs. */
         fun host(host: String): Builder {
             _host = host
             return this
         }
 
-        /** Port for Configuration logs. */
+        /** Port for Papertrail logs. */
         fun port(port: Int): Builder {
             _port = port
             return this
