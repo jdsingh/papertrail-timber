@@ -1,4 +1,4 @@
-package me.jagdeep.papertrail.timber
+package me.jagdeep.papertrail.timber.internal
 
 import ch.qos.logback.classic.AsyncAppender
 import ch.qos.logback.classic.Logger
@@ -10,11 +10,11 @@ import org.productivity.java.syslog4j.impl.net.tcp.ssl.SSLTCPNetSyslogConfig
 import org.slf4j.LoggerFactory
 
 /**
- * Configure Papertrail with Android logback.
+ * Configure Configuration with Android logback.
  */
-internal object Papertrail {
+internal class Configuration(system: String, program: String, host: String, port: Int) {
 
-    fun init(system: String, program: String, host: String, port: Int) {
+    init {
         // Reset the default context (which may already have been initialized)
         // since we want to reconfigure it
         val loggerContext = (LoggerFactory.getILoggerFactory() as LoggerContext).apply {
