@@ -23,7 +23,7 @@ String getProperty(String property, String envVariable, boolean addQuote) {
     return value
 }
 
-private boolean isCiBuild() {
+private static boolean isCiBuild() {
     fromEnv("CIRCLE_BUILD_NUM") != null
 }
 
