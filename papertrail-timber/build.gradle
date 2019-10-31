@@ -31,7 +31,7 @@ dependencies {
     testImplementation "junit:junit:4.12"
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     api "com.jakewharton.timber:timber:4.7.1"
-    api "org.slf4j:slf4j-api:1.7.27"
+    api "org.slf4j:slf4j-api:1.7.29"
     api "com.github.tony19:logback-android-core:1.1.1-6"
     api("com.github.tony19:logback-android-classic:1.1.1-6") {
         exclude group: "com.google.android", module: "android"
