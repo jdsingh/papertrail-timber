@@ -22,4 +22,9 @@ object Libraries {
     const val junit = "junit:junit:${Version.junit}"
     const val kotlin = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Version.kotlin}"
     const val appCompact = "androidx.appcompat:appcompat:${Version.appCompact}"
+    const val timber = "com.jakewharton.timber:timber:4.7.1"
+    const val slf4j = "org.slf4j:slf4j-api:1.7.27"
+    const val logbackAndroidCore = "com.github.tony19:logback-android-core:1.1.1-6"
+    const val logbackAndroidClassic = "com.github.tony19:logback-android-classic:1.1.1-6"
+    const val logbackSyslog4j = "com.papertrailapp:logback-syslog4j:1.0.0"
 }
